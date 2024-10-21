@@ -45,7 +45,7 @@ const AsciiEffect: React.FC<AsciiEffectProps> = ({
   }, [height, width]);
 
   const generateTyping = useCallback((frame: number) => {
-    const cursor = frame % 2 === 0 ? '|' : ' ';
+    const cursor = frame % 2 === 0 ? '▏' : ' ';
     return childrenText.slice(0, frame % (childrenText.length + 1)) + cursor;
   }, [childrenText]);
 
@@ -142,7 +142,7 @@ const AsciiEffect: React.FC<AsciiEffectProps> = ({
   }, [speed]);
 
   return (
-    <div className={`font-mono whitespace-pre inline-block inset-0 select-none pointer-events-none ${color}`}>
+    <div className={`font-mono whitespace-pre overflow-hidden break-normal leading-normal inline-block inset-0 select-none pointer-events-none ${color}`}>
       <pre>{asciiText}</pre>
     </div>
   );
