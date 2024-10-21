@@ -31,7 +31,7 @@ const EchoText: FC<EchoTextProps> = React.memo(({
           return { x: index * 3, y: index * 3 };
       }
     };
-  }, [echoDirection]);
+  }, [echoDirection, numberOfEchoes]);
 
   // Memoize the echo rendering to avoid unnecessary recalculations
   const echoes = useMemo(() => {
@@ -78,5 +78,6 @@ const EchoText: FC<EchoTextProps> = React.memo(({
   );
 });
 
-export default EchoText;
+EchoText.displayName = 'EchoText';
 
+export default EchoText;
