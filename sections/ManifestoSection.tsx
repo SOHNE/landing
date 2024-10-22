@@ -22,62 +22,21 @@ const manifestoItems = [
 ]
 
 const ManifestoSection = () => {
-  const titleVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: -50,
-      scale: 0.95
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  }
-
-  const textVariants = {
-    hidden: { 
-      opacity: 0,
-      y: 30,
-      scale: 0.98
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut"
-      }
-    }
-  }
-
   return (
     <section id="manifesto" className="py-20 relative z-10">
       <div className="container mx-auto px-4 max-w-3xl">
-        <motion.h2 
-          className="text-4xl font-bold mb-12 text-center"
-          variants={titleVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
+        <h2 className="text-4xl font-bold mb-12 text-center">
           <AsciiEffect effect="glitch" color="text-white">
             MANIFESTO
           </AsciiEffect>
-        </motion.h2>
+        </h2>
         <div className="space-y-6 text-center">
           {manifestoItems.map((text, index) => (
             <motion.p
               key={index}
               className="text-lg leading-relaxed"
-              variants={textVariants}
-              initial="hidden"
-              whileInView="visible"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true, margin: "-100px" }}
             >
