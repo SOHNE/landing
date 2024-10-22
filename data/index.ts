@@ -32,7 +32,7 @@ export const tools: Tool[] = [
   {
     id: 1,
     name: "DURA2D",
-    description: "A quantum-inspired 4D physics engine that bends reality to your will. Create worlds beyond imagination.",
+    description: "A 2D physics engine that bends reality to your will.",
     icon: Atom,
     color: "text-purple-500"
   },
