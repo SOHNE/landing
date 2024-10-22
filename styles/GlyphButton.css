@@ -34,7 +34,7 @@
   position: absolute;
   display: inline-block;
   inset: 0;
-  color: #000;
+  color: var(--char-color);
 }
 
 .glyph-button:is(:hover, :focus-visible) .glyph-button-content > span::after {

@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react'
 import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import EchoText from './EchoText'
+import GlyphButton from './GlyphButton'
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -24,8 +25,13 @@ const Navigation = () => {
 
         <div className="hidden md:flex space-x-6">
           {menuItems.map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-gray-500 transition-colors">
-              #{item}
+            <a key={item} href={`#${item.toLowerCase()}`}> 
+              <GlyphButton
+                text={`#${item}`}
+                textColor='#FFFFFF'
+                speed={0.7}
+                className="bg-transparent font-bold pointer-events-auto"
+              />
             </a>
           ))}
         </div>
@@ -43,9 +49,9 @@ const Navigation = () => {
           >
             <div className="container mx-auto px-4 flex flex-col space-y-2">
               {menuItems.map((item) => (
-                <a 
-                  key={item} 
-                  href={`#${item.toLowerCase()}`} 
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
                   className="block py-2 hover:text-gray-500 transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >

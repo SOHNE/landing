@@ -5,6 +5,7 @@ interface GlyphButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>
   text: string;
   glyphs?: string;
   speed?: number;
+  textColor?: string;
 }
 
 const GLYPHS =
@@ -14,6 +15,7 @@ const GlyphButton: FC<GlyphButtonProps> = ({
   text,
   glyphs = GLYPHS,
   speed = 0.6,
+  textColor = '#000',
   className = '',
   ...props
 }) => {
@@ -29,7 +31,10 @@ const GlyphButton: FC<GlyphButtonProps> = ({
       className={`glyph-button ${className}`}
       {...props}
     >
-      <span className="glyph-button-content">
+      <span
+        className="glyph-button-content"
+        style={{ '--char-color': textColor } as React.CSSProperties}
+      >
         {text.split('').map((char, index) => (
           <span
             key={`${char}-${index}`}
@@ -51,3 +56,4 @@ const GlyphButton: FC<GlyphButtonProps> = ({
 };
 
 export default GlyphButton;
+
