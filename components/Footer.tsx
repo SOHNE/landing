@@ -87,7 +87,7 @@ const Footer = () => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <social.icon className="w-6 h-6" />
+                <social.icon />
               </motion.a>
             ))}
           </motion.div>
