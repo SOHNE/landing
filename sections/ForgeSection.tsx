@@ -7,18 +7,72 @@ import AsciiEffect from '@/components/AsciiEffect'
 const ForgeSection = () => {
   const [hoveredTool, setHoveredTool] = useState<number | null>(null)
 
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  }
+
+  const titleVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: -50 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  }
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0,
+      x: -50,
+      scale: 0.95
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  }
+
   return (
     <section id="forge" className="py-20 bg-white text-black relative z-10">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-12 text-center">
+        <motion.h2 
+          className="text-4xl font-bold mb-12 text-center"
+          variants={titleVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           <AsciiEffect effect="glitch" color="text-black">
             THE FORGE
           </AsciiEffect>
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        </motion.h2>
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
           {tools.map((tool) => (
             <motion.div
               key={tool.id}
+              variants={cardVariants}
               className="border-2 border-black p-6 rounded-lg group relative overflow-hidden hover:bg-black hover:text-white"
               onMouseEnter={() => setHoveredTool(tool.id)}
               onMouseLeave={() => setHoveredTool(null)}
@@ -61,7 +115,7 @@ const ForgeSection = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

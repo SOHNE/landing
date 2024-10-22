@@ -16,3 +16,9 @@ export interface Tool {
   icon: LucideIcon
   color: string
 }
+
+export interface Link {
+  icon: React.FC;
+  name: string;
+  link: string;
+};
